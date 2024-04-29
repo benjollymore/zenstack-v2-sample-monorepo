@@ -14,19 +14,13 @@ model User extends Base {
     // 1:N Relation with single active tenant
     // User can only be active for tenant at a time
     activeTenant Tenant? @relation(fields: [activeTenantId], references: [id])
-    activeTenantId String?
+
+    // when user is created, active tenant is set to session user's tenant
+    activeTenantId String @default(auth().activeTenantId)
 
     // Many to many relation with tenants
     tenantConnections TenantUserRelation[]
 
     @@allow('all', auth() == this)
     @@allow('all', activeTenantId == auth().activeTenantId )
-
-    /**
-    This reads as:
-    Allow all for:
-    In associated tenants: 
-    If one of those tenants has an associated user that is the current user
-    */
-    // @@allow('all', tenantConnections?[tenant.userConnections?[auth()]])
 }

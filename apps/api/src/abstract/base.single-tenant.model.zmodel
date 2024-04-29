@@ -10,7 +10,7 @@ abstract model SingleTenantBase {
     deletedAt DateTime? @omit
   
     tenant Tenant? @relation(fields: [tenantId], references: [id])
-    tenantId String
+    tenantId String @default(auth().activeTenantId)
 
     @@allow('all', tenantId == auth().activeTenantId) 
 }
