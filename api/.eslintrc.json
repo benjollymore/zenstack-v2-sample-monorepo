@@ -1,0 +1,19 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": true
+  },
+  "ignorePatterns": [
+    // Ignore dotfiles
+    ".*.js",
+    "node_modules/",
+    "dist/",
+    "**/generated/**/*"
+  ],
+  "rules": {
+    "no-return-await": "off",
+    "tsdoc/syntax": "off",
+    // TODO Remove this rule and implement proper logging
+    "no-console": "off"
+  }
+}

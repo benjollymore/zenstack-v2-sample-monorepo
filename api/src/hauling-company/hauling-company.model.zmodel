@@ -1,0 +1,18 @@
+import '../abstract/base.model'
+import '../tenant/tenant-hauling-company.relation'
+import '../user/models/driver.model'
+
+model HaulingCompany extends Base {
+    name String
+    description String
+    drivers Driver[]
+    tenantConnections TenantHaulingCompanyRelation[]
+
+    /**
+    This reads as:
+    Allow all for:
+    In associated tenants: 
+    If one of those tenants has an associated user that is the current user
+    */
+    @@allow('all', tenantConnections?[tenant.activeUsers?[auth()]]) 
+}

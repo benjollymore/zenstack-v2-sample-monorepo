@@ -1,0 +1,36 @@
+import 'src/abstract/base.model'
+
+// tenants
+import 'src/tenant/tenant.model'
+
+// many to many multitenant models and their relations
+import 'src/hauling-company/hauling-company.model'
+import 'src/tenant/tenant-hauling-company.relation'
+
+import 'src/user/models/user.model'
+import 'src/tenant/tenant-user.relation'
+
+// user type models
+import 'src/user/models/user.subtype.base'
+import 'src/user/models/driver.model'
+import 'src/user/models/admin.model'
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator zod {
+  provider = "zod-prisma-types"
+  output = "../src/zod/generated"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+plugin trpc {
+    provider = '@zenstackhq/trpc'
+    output = 'src/trpc/generated'
+    generateClientHelpers = 'react'
+}

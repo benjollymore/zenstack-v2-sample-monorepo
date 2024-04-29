@@ -1,0 +1,8 @@
+import '../user/models/user.model' // this is a hack to get around a bug in Zenstack's auth policy generator. I have an open issue with them about this.
+
+abstract model Base {
+    id String @id @default(uuid())
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    deletedAt DateTime? @omit
+}

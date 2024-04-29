@@ -1,0 +1,6 @@
+import '../../abstract/base.single-tenant.model'
+
+abstract model UserSubtypeBase extends SingleTenantBase {
+    userId String @unique
+    user User @relation(fields: [userId], references: [id])
+}
