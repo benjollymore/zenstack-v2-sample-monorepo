@@ -1,1 +1,1 @@
-Sharing with Zenstack team to highlight model registration issues post migration to Zenstack v2
+Sharing with Zenstack team to highlight code generation issues post migration to Zenstack v2 in a monorepo environment
