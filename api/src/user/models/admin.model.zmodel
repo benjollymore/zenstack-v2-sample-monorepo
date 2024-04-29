@@ -1,4 +1,0 @@
-import './user.subtype.base'
-
-model Admin extends UserSubtypeBase  {
-}

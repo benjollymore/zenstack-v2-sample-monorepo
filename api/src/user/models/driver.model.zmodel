@@ -1,6 +1,0 @@
-import './user.subtype.base'
-
-model Driver extends UserSubtypeBase  {
-    haulingCompanyId String // fk
-    haulingCompany   HaulingCompany @relation(fields: [haulingCompanyId], references: [id])
-}

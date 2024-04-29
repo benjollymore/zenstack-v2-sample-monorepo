@@ -1,0 +1,18 @@
+import '../abstract/base.model'
+import '../user/models/user.model'
+import '../user/models/admin.model'
+import '../user/models/driver.model'
+import './tenant-user.relation'
+
+model Tenant extends Base {
+    name String
+
+    // one to many relations with users currently active in the tenant
+    activeUsers User[]
+
+    adminProfiles Admin[]
+    driverProfiles Driver[]
+
+    // many to many relations
+    userConnections TenantUserRelation[]
+}

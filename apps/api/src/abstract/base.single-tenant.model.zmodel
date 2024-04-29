@@ -1,0 +1,16 @@
+import './base.model'
+import '../tenant/tenant.model'
+
+// cant make this extend base as it breaks relations in child models.
+// seems to not pick up the tenant relation on the child models
+abstract model SingleTenantBase {
+    id String @id @default(uuid())
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    deletedAt DateTime? @omit
+  
+    tenant Tenant? @relation(fields: [tenantId], references: [id])
+    tenantId String
+
+    @@allow('all', tenantId == auth().activeTenantId) 
+}

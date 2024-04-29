@@ -1,0 +1,13 @@
+import '../abstract/base.model'
+
+// tenants
+import '../tenant/tenant.model'
+
+// many to many multitenant models and their relations
+import '../user/models/user.model'
+import '../tenant/tenant-user.relation'
+
+// user type models
+import '../user/models/user.subtype.base'
+import '../user/models/driver.model'
+import '../user/models/admin.model'

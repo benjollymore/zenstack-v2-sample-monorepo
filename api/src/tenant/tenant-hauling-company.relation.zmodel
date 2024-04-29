@@ -1,8 +1,0 @@
-import '../abstract/base.model'
-
-model TenantHaulingCompanyRelation extends Base {
-    tenant Tenant? @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-    tenantId String
-    haulingCompany HaulingCompany? @relation(fields: [haulingCompanyId], references: [id])
-    haulingCompanyId String
-}

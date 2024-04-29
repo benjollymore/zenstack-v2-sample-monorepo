@@ -1,8 +1,0 @@
-import './base.model'
-
-abstract model SingleTenantBase extends Base {
-  tenant Tenant? @relation(fields: [tenantId], references: [id])
-  tenantId String
-
-  @@allow('all', tenantId == auth().activeTenantId) 
-}

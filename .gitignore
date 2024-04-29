@@ -1,0 +1,15 @@
+.DS_Store
+node_modules
+.turbo
+.vscode
+*.log
+.next
+dist
+dist-ssr
+*.local
+.env*
+!.env.example
+.cache
+server/dist
+public/dist
+.zenstack_repl_history

@@ -1,9 +1,0 @@
-import '../abstract/base.model'
-import '../user/models/user.model'
-
-model TenantUserRelation extends Base {
-    tenant Tenant? @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-    tenantId String
-    user User? @relation(fields: [userId], references: [id]) // this is complaining about a missing relation that exists. Still runs fine
-    userId String
-}

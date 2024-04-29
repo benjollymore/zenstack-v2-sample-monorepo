@@ -1,0 +1,7 @@
+import './user.subtype.base'
+import './user.model'
+import '../../tenant/tenant.model'
+
+model Admin extends UserSubtypeBase  {
+
+}

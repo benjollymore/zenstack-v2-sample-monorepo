@@ -1,0 +1,20 @@
+import '../../abstract/base.model'
+import './user.model'
+import '../../tenant/tenant.model'
+
+// this really should be extending SingleTenantBase, 
+// however when that happens it breaks the Tenant relation for 
+// child models
+// seems like this happens whenever there is an abstract > abstract with relation > concrete inheritance chain
+// ex: error: Error validating field `adminProfiles` in model `Tenant`: The relation field `adminProfiles` on model `Tenant` is missing an opposite relation field on the model `Admin`
+abstract model UserSubtypeBase extends Base {
+    userId String @unique
+    user User @relation(fields: [userId], references: [id])
+
+
+    tenant Tenant? @relation(fields: [tenantId], references: [id])
+    tenantId String @default(auth().activeTenantId)
+
+
+    @@allow('all', tenantId == auth().activeTenantId) 
+}

@@ -1,0 +1,14 @@
+{
+  "extends": ["//"],
+  "pipeline": {
+    "build": {
+      "outputs": ["dist/**"]
+    },
+    "zs:generate": {
+      "cache": false
+    },
+    "zs:repl": {
+      "cache": false
+    }
+  }
+}
