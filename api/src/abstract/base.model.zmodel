@@ -1,4 +1,4 @@
-import '../user/models/user.model' // this is a hack to get around a bug in Zenstack's auth policy generator. I have an open issue with them about this.
+import '../user/models/user.model' // this is a hack 
 
 abstract model Base {
     id String @id @default(uuid())
