@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, type User } from "@prisma/client";
 import { enhance } from "@zenstackhq/runtime";
 import { softDeleteExtension } from "./extensions/soft-delete";
 
@@ -26,7 +26,7 @@ export const prisma = barePrismaClient.$extends(softDeleteExtension);
  * @returns Zenstack-enhanced Prisma client
  */
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type -- This is a dynamic type definition
-export const getEnhancedPrismaClient = (user: Record<string, unknown>) => {
+export const getEnhancedPrismaClient = (user: User) => {
   return enhance(barePrismaClient, { user }).$extends(softDeleteExtension);
 };
 

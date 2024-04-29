@@ -8,12 +8,8 @@ const softDeleteModels: Prisma.ModelName[] = [
   "Admin",
   "Driver",
   "User",
-  "HaulingCompany",
   "Tenant",
   "TenantUserRelation",
-  "TenantHaulingCompanyRelation",
-  "Order",
-  "OrderItem",
 ];
 
 export const softDeleteExtension = createSoftDeleteExtension({
