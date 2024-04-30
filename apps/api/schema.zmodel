@@ -19,3 +19,8 @@ plugin trpc {
     output = 'src/trpc/generated'
     generateClientHelpers = 'react'
 }
+
+plugin enhancer {
+    provider = '@core/enhancer'
+    output = "node_modules/.zenstack"
+} 

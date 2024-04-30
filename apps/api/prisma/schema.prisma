@@ -31,7 +31,7 @@ model User {
   driver            Driver?
   admin             Admin?
   activeTenant      Tenant?              @relation(fields: [activeTenantId], references: [id])
-  activeTenantId    String?
+  activeTenantId    String
   tenantConnections TenantUserRelation[]
 }
 
